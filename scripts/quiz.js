@@ -4,20 +4,16 @@ const progressBarBackground = timepiece.querySelector('.timepiece--background-pr
 const progressBarForeground = timepiece.querySelector('.timepiece--foreground-progress-bar');
 const TIME = 10;
 let count = 0;
-
-// init
-let width = Math.floor(progressBarBackground.getBoundingClientRect().width);
-progressBarBackground.style.width = `${width}px`;
-progressBarForeground.style.width = '0px';
+let width;
+let time;
 
 /**
  * Changes width of progress bar per step
  * 
  */
 function progress() {
-
+    console.log("PROGRESS.... ");
     let currentWidthprogressBarForeground = progressBarForeground.getBoundingClientRect().width;
-    console.log(currentWidthprogressBarForeground);
 
     if (currentWidthprogressBarForeground < width) {
         count++;
@@ -31,4 +27,12 @@ function progress() {
     }
 }
 
-setInterval(progress, 1000);
+function init() {
+    console.log("INIT .... ")
+    width = Math.floor(progressBarBackground.getBoundingClientRect().width);
+    progressBarBackground.style.width = `${width}px`;
+    progressBarForeground.style.width = '0px';
+}
+init();
+
+time = setInterval(progress, 1000);
