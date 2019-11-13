@@ -26,7 +26,7 @@ $padding: 15px;
 
         max-width: 50%;
         text-align: center;
-        font-family: Montserrat,sans-serif;
+        font-family: Montserrat, sans-serif;
         color: lighten($color: $color-black, $amount: 30);
     }
 
@@ -47,6 +47,14 @@ $padding: 15px;
             margin-top: -1px;
         }
     }
+}
+
+.question-container {
+    display: none;
+}
+
+.score-container {
+    display: none;
 }
 
 .timepiece {
