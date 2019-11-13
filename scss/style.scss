@@ -7,6 +7,48 @@ $color-white: #ffffff;
 $color-brown: #423102;
 $padding: 15px;
 
+.section {
+    width: 800px;
+    margin: 15px auto;
+    min-height: 450px;
+    background-color: darken($color: $color-white, $amount: 10);
+    box-shadow: 0px 0px 4px -1px $color-black;
+    border-radius: 0.4rem;
+}
+
+.start-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--title {
+
+        max-width: 50%;
+        text-align: center;
+        font-family: Montserrat,sans-serif;
+        color: lighten($color: $color-black, $amount: 30);
+    }
+
+    &--button {
+        font-family: Oswald, sans-serif;
+        padding: $padding;
+        font-size: 2rem;
+        cursor: pointer;
+        outline: none;
+        background-color: $color-green;
+        border: 1px solid darken($color: $color-green, $amount: 30);
+        border-radius: 0.4rem;
+        transition: background-color .3s ease-in, margin-top .3s ease-in;
+
+        &:hover {
+            box-shadow: -1px -1px 1px 1px $color-black;
+            background-color: darken($color: $color-green, $amount: 30);
+            margin-top: -1px;
+        }
+    }
+}
+
 .timepiece {
     display: flex;
     flex-direction: column;
@@ -25,7 +67,7 @@ $padding: 15px;
 
     &--progress-bar {
         position: relative;
-        width:100%;
+        width: 100%;
     }
 
     &--background-progress-bar {
