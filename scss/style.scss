@@ -6,7 +6,12 @@ $color-black: #1d1e1f;
 $color-white: #ffffff;
 $color-brown: #423102;
 $padding: 15px;
-
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
 .section {
     width: 800px;
     margin: 15px auto;
