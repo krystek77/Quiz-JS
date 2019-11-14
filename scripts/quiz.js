@@ -123,12 +123,15 @@ answersListHTML.addEventListener('click', function () {
 
     const answer = event.target.id;
     console.log(answer);
-    
+
     if (answer === question.correct) {
         console.log("CORRECT");
+        answerIsCorrect();
     } else {
         console.log("WRONG");
+        answerIsWrong();
     }
+    
 })
 
 startBtn.addEventListener('click', function () {
