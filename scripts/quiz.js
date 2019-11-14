@@ -104,10 +104,11 @@ function progress() {
         counter.innerHTML = count;
         progressBarForeground.style.width = `0px`;
         answerIsWrong();
-        if(currentQuestionIndex <= lastQuestionIndex) {
-
+        if (currentQuestionIndex < lastQuestionIndex) {
             currentQuestionIndex++;
             renderQuestion();
+        } else {
+            console.log("GO TO SCORE ... ");
         }
     }
 }
