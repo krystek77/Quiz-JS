@@ -14,6 +14,32 @@ const TIME = 10;
 let count = 0;
 let width;
 let time;
+let questions = [{
+        question: "What does HTML stands for",
+        answerA: "correct",
+        answerB: "wrong",
+        answerC: "wrong",
+        correct: "A",
+        img: "html"
+    },
+    {
+        question: "What does JS stands for",
+        answerA: "wrong",
+        answerB: "correct",
+        answerC: "wrong",
+        correct: "B",
+        img: "js"
+    },
+    {
+        question: "What does CSS stands for",
+        answerA: "wrong",
+        answerB: "wrong",
+        answerC: "correct",
+        correct: "C",
+        img: "css"
+    }
+];
+
 
 /**
  * Changes width of progress bar per step
