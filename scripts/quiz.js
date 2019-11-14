@@ -6,6 +6,9 @@ const startBtn = document.querySelector('.start-container--button');
 const questionContainer = document.querySelector('.question-container');
 const startContainer = document.querySelector('.start-container');
 
+const question = document.querySelector('.question-container--question');
+const answersList = document.querySelector('.question-container--answers-list');
+const image = document.querySelector('.question-container--image img');
 
 const TIME = 10;
 let count = 0;
@@ -38,8 +41,10 @@ function init() {
     progressBarBackground.style.width = `${width}px`;
     progressBarForeground.style.width = '0px';
     time = setInterval(progress, 1000);
+    console.log(question);
+    console.log(answersList);
+    console.log(image);
 }
-
 
 
 startBtn.addEventListener('click', function () {
