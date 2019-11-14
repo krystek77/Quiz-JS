@@ -6,14 +6,11 @@ const startBtn = document.querySelector('.start-container--button');
 const questionContainer = document.querySelector('.question-container');
 const startContainer = document.querySelector('.start-container');
 
-const question = document.querySelector('.question-container--question');
-const answersList = document.querySelector('.question-container--answers-list');
-const image = document.querySelector('.question-container--image img');
-
 const TIME = 10;
 let count = 0;
 let width;
 let time;
+
 let questions = [{
         question: "What does HTML stands for",
         answerA: "correct",
@@ -40,6 +37,29 @@ let questions = [{
     }
 ];
 
+const questionHTML = document.querySelector('.question-container--question');
+const answersListHTML = document.querySelector('.question-container--answers-list');
+const imageHTML = document.querySelector('.question-container--image');
+
+let currentQuestionIndex = 2;
+const lastQuestionIndex = questions.length - 1;
+const numbersOfquestions = questions.length;
+
+/**
+ * 
+ */
+function renderQuestion() {
+    const position = "beforeend";
+    if (currentQuestionIndex < numbersOfquestions) {
+
+        const question = questions[currentQuestionIndex];
+        questionHTML.innerHTML = question.question;
+        imageHTML.innerHTML = "<img src='./images/" + question.img + ".png' alt='" + question.img + " logo'>";
+        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='A'>${question.answerA}</li>`);
+        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='B'>${question.answerB}</li>`);
+        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='C'>${question.answerC}</li>`);
+    }
+}
 
 /**
  * Changes width of progress bar per step
@@ -64,12 +84,11 @@ function progress() {
 function init() {
     console.log("INIT .... ")
     width = Math.floor(progressBarBackground.getBoundingClientRect().width);
+    console.log(width);
     progressBarBackground.style.width = `${width}px`;
     progressBarForeground.style.width = '0px';
+    renderQuestion();
     time = setInterval(progress, 1000);
-    console.log(question);
-    console.log(answersList);
-    console.log(image);
 }
 
 
