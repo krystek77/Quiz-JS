@@ -2,6 +2,11 @@ const timepiece = document.querySelector('.timepiece');
 const counter = timepiece.querySelector('.timepiece--counter');
 const progressBarBackground = timepiece.querySelector('.timepiece--background-progress-bar');
 const progressBarForeground = timepiece.querySelector('.timepiece--foreground-progress-bar');
+const startBtn = document.querySelector('.start-container--button');
+const questionContainer = document.querySelector('.question-container');
+const startContainer = document.querySelector('.start-container');
+
+
 const TIME = 10;
 let count = 0;
 let width;
@@ -32,7 +37,14 @@ function init() {
     width = Math.floor(progressBarBackground.getBoundingClientRect().width);
     progressBarBackground.style.width = `${width}px`;
     progressBarForeground.style.width = '0px';
+    time = setInterval(progress, 1000);
 }
-init();
 
-time = setInterval(progress, 1000);
+
+
+startBtn.addEventListener('click', function () {
+    console.log("Start QUIZ .... ");
+    startContainer.classList.add('hide');
+    questionContainer.classList.add('show');
+    init();
+});
