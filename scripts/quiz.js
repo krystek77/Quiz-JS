@@ -105,6 +105,20 @@ function progress() {
         progressBarForeground.style.width = `0px`;
     }
 }
+/**
+ * Checks answer
+ * 
+ * @param {String} answer 
+ */
+function checkAnswer(answer) {
+    if (answer === question.correct) {
+        console.log("CORRECT");
+        answerIsCorrect();
+    } else {
+        console.log("WRONG");
+        answerIsWrong();
+    }
+}
 
 function init() {
     console.log("INIT .... ")
@@ -117,21 +131,13 @@ function init() {
     time = setInterval(progress, 1000);
 }
 
+
 answersListHTML.addEventListener('click', function () {
     console.log("CHOOSEN ANSWER is ...");
     if (event.target === this) return;
-
     const answer = event.target.id;
     console.log(answer);
-
-    if (answer === question.correct) {
-        console.log("CORRECT");
-        answerIsCorrect();
-    } else {
-        console.log("WRONG");
-        answerIsWrong();
-    }
-    
+    checkAnswer(answer);
 })
 
 startBtn.addEventListener('click', function () {
