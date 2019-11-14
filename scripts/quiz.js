@@ -69,9 +69,23 @@ const statusContainer = document.querySelector('.question-container--status');
  */
 function renderStatus() {
     for (let index = 0; index < numbersOfquestions; index++) {
-        statusContainer.innerHTML += "<span class='question-container--progress correct' id=" + index + "></span>";
+        statusContainer.innerHTML += "<span class='question-container--progress' id=" + index + "></span>";
     }
+    answerIsCorrect();
 }
+/**
+ * Checks if answer is correct or wrong and set green background-color for suitable status element
+ */
+function answerIsCorrect() {
+    document.getElementById(currentQuestionIndex).style.backgroundColor = "green";
+}
+/**
+ * Checks if answer is wrong or wrong and set red background-color for suitable status element
+ */
+function answerIsWrong() {
+    document.getElementById(currentQuestionIndex).style.backgroundColor = "red";
+}
+
 /**
  * Changes width of progress bar per step
  * 
