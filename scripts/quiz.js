@@ -103,6 +103,12 @@ function progress() {
         count = 0;
         counter.innerHTML = count;
         progressBarForeground.style.width = `0px`;
+        answerIsWrong();
+        if(currentQuestionIndex <= lastQuestionIndex) {
+
+            currentQuestionIndex++;
+            renderQuestion();
+        }
     }
 }
 /**
