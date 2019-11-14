@@ -5,6 +5,7 @@ const progressBarForeground = timepiece.querySelector('.timepiece--foreground-pr
 const startBtn = document.querySelector('.start-container--button');
 const questionContainer = document.querySelector('.question-container');
 const startContainer = document.querySelector('.start-container');
+const scoreContainer = document.querySelector('.score-container');
 
 const TIME = 10;
 let count = 0;
@@ -114,8 +115,21 @@ function progress() {
             renderQuestion();
         } else {
             console.log("GO TO SCORE ... ");
+            clearInterval(time);
+            setTimeout(renderScore, 2000);
+
         }
     }
+}
+/**
+ * Render score
+ * 
+ */
+function renderScore() {
+    console.log("SCORE is ... ");
+    questionContainer.classList.remove('show');
+    scoreContainer.classList.add('show');
+
 }
 /**
  * Checks answer
@@ -130,6 +144,21 @@ function checkAnswer(answer) {
         console.log("WRONG");
         answerIsWrong();
     }
+    clearInterval(time);
+    if (currentQuestionIndex < lastQuestionIndex) {
+        currentQuestionIndex++;
+        renderQuestion();
+        count = 0;
+        counter.innerHTML = count;
+        width = Math.floor(progressBarBackground.getBoundingClientRect().width);
+        progressBarBackground.style.width = `${width}px`;
+        progressBarForeground.style.width = '0px';
+        time = setInterval(progress, 1000);
+    } else {
+        console.log("LAST QUESTION");
+        setTimeout(renderScore, 1000);
+    }
+
 }
 
 function init() {
