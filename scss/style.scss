@@ -133,6 +133,40 @@ $padding: 15px;
 
 .score-container {
     display: none;
+
+    &--content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--title {
+        font-family: Oswald, sans-serif;
+        font-size: 2rem;
+        margin: 1rem auto;
+    }
+
+    &--image {
+        width: 40%;
+
+        img {
+            width: 60%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &--scores {
+        font-family: Oswald, sans-serif;
+        font-size: 2rem;
+        margin: 1rem auto;
+        font-weight: 600;
+    }
+
+
+
 }
 
 .timepiece {
@@ -173,6 +207,7 @@ $padding: 15px;
         background-color: darken($color: $color-green, $amount: 20);
     }
 }
+
 
 .hide {
     display: none;
