@@ -46,6 +46,7 @@ const lastQuestionIndex = questions.length - 1;
 const numbersOfquestions = questions.length;
 
 /**
+ * Render question
  * 
  */
 function renderQuestion() {
