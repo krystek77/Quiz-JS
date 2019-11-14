@@ -76,6 +76,12 @@ $padding: 15px;
     &--image {
         width: 100%;
         display: block;
+        padding-bottom: $padding;
+    }
+
+    &--image img {
+        max-width: 100%;
+        display: block;
     }
 
     &--question {
@@ -138,6 +144,8 @@ $padding: 15px;
     padding: $padding;
     border-radius: 0.4rem;
     border: 1px dotted grey;
+    width: 250px;
+    box-sizing: border-box;
 
     &--counter {
         font-family: Oswald, sans-serif;
