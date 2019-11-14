@@ -41,7 +41,7 @@ const questionHTML = document.querySelector('.question-container--question');
 const answersListHTML = document.querySelector('.question-container--answers-list');
 const imageHTML = document.querySelector('.question-container--image');
 
-let currentQuestionIndex = 2;
+let currentQuestionIndex = 0;
 const lastQuestionIndex = questions.length - 1;
 const numbersOfquestions = questions.length;
 
@@ -62,6 +62,16 @@ function renderQuestion() {
     }
 }
 
+const statusContainer = document.querySelector('.question-container--status');
+/**
+ * Render status
+ * 
+ */
+function renderStatus() {
+    for (let index = 0; index < numbersOfquestions; index++) {
+        statusContainer.innerHTML += "<span class='question-container--progress correct' id=" + index + "></span>";
+    }
+}
 /**
  * Changes width of progress bar per step
  * 
@@ -89,6 +99,7 @@ function init() {
     progressBarBackground.style.width = `${width}px`;
     progressBarForeground.style.width = '0px';
     renderQuestion();
+    renderStatus();
     time = setInterval(progress, 1000);
 }
 
