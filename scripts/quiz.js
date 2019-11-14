@@ -44,6 +44,7 @@ const imageHTML = document.querySelector('.question-container--image');
 let currentQuestionIndex = 0;
 const lastQuestionIndex = questions.length - 1;
 const numbersOfquestions = questions.length;
+let question = null;
 
 /**
  * Render question
@@ -53,7 +54,7 @@ function renderQuestion() {
     const position = "beforeend";
     if (currentQuestionIndex < numbersOfquestions) {
 
-        const question = questions[currentQuestionIndex];
+        question = questions[currentQuestionIndex];
         questionHTML.innerHTML = question.question;
         imageHTML.innerHTML = "<img src='./images/" + question.img + ".png' alt='" + question.img + " logo'>";
         answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='A'>${question.answerA}</li>`);
@@ -71,7 +72,6 @@ function renderStatus() {
     for (let index = 0; index < numbersOfquestions; index++) {
         statusContainer.innerHTML += "<span class='question-container--progress' id=" + index + "></span>";
     }
-    answerIsCorrect();
 }
 /**
  * Checks if answer is correct or wrong and set green background-color for suitable status element
@@ -117,6 +117,19 @@ function init() {
     time = setInterval(progress, 1000);
 }
 
+answersListHTML.addEventListener('click', function () {
+    console.log("CHOOSEN ANSWER is ...");
+    if (event.target === this) return;
+
+    const answer = event.target.id;
+    console.log(answer);
+    
+    if (answer === question.correct) {
+        console.log("CORRECT");
+    } else {
+        console.log("WRONG");
+    }
+})
 
 startBtn.addEventListener('click', function () {
     console.log("Start QUIZ .... ");
