@@ -51,16 +51,21 @@ let question = null;
  * 
  */
 function renderQuestion() {
-    const position = "beforeend";
+    // const position = "beforeend";
     if (currentQuestionIndex < numbersOfquestions) {
 
         question = questions[currentQuestionIndex];
         questionHTML.innerHTML = question.question;
         imageHTML.innerHTML = "<img src='./images/" + question.img + ".png' alt='" + question.img + " logo'>";
-        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='A'>${question.answerA}</li>`);
-        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='B'>${question.answerB}</li>`);
-        answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='C'>${question.answerC}</li>`);
+        // answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='A'>${question.answerA}</li>`);
+        // answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='B'>${question.answerB}</li>`);
+        // answersListHTML.insertAdjacentHTML(position, `<li class="question-container--answer" id='C'>${question.answerC}</li>`);
+        const answers = answersListHTML.children;
+        answers[0].innerHTML = question.answerA;
+        answers[1].innerHTML = question.answerB;
+        answers[2].innerHTML = question.answerC;
     }
+
 }
 
 const statusContainer = document.querySelector('.question-container--status');
