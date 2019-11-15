@@ -6,6 +6,7 @@ const startBtn = document.querySelector('.start-container--button');
 const questionContainer = document.querySelector('.question-container');
 const startContainer = document.querySelector('.start-container');
 const scoreContainer = document.querySelector('.score-container');
+const tryAgainBtn = document.querySelector('.score-container--button');
 
 const TIME = 10;
 let count = 0;
@@ -198,3 +199,9 @@ startBtn.addEventListener('click', function () {
     questionContainer.classList.add('show');
     init();
 });
+tryAgainBtn.addEventListener('click', function () {
+    console.log("RELOAD GAME ... ");
+    setTimeout(function () {
+        location.reload();
+    }, 1000);
+})
