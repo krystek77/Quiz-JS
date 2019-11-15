@@ -133,6 +133,21 @@
   margin: 1rem auto;
   font-weight: 600;
 }
+.score-container--button {
+  font-family: Oswald, sans-serif;
+  padding: 7.5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  outline: none;
+  background-color: #a7db93;
+  border: 1px solid #53a035;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s ease-in, margin-top 0.3s ease-in;
+}
+.score-container--button:hover {
+  box-shadow: -1px -1px 1px 1px #1d1e1f;
+  background-color: #53a035;
+}
 
 .timepiece {
   display: flex;
