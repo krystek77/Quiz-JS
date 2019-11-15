@@ -47,6 +47,7 @@ const lastQuestionIndex = questions.length - 1;
 const numbersOfquestions = questions.length;
 let question = null;
 
+
 /**
  * Render question
  * 
@@ -121,6 +122,11 @@ function progress() {
         }
     }
 }
+
+let score = 0;
+const imageScore = document.querySelector('.score-container--image');
+const scores = document.querySelector('.score-container--scores');
+
 /**
  * Render score
  * 
@@ -129,7 +135,11 @@ function renderScore() {
     console.log("SCORE is ... ");
     questionContainer.classList.remove('show');
     scoreContainer.classList.add('show');
+    const scorePercent = 100 * (score / numbersOfquestions);
+    const image = (scorePercent >=80) ? 5 : (scorePercent >=60) ? 4 : (scorePercent >= 40) ? 3 : (scorePercent >=20) ? 2 : 1;
 
+    imageScore.innerHTML = "<img src='../images/" + image + ".png' alt='" + image + ".png'/>";
+    scores.innerHTML = scorePercent + " %";
 }
 /**
  * Checks answer
@@ -140,6 +150,7 @@ function checkAnswer(answer) {
     if (answer === question.correct) {
         console.log("CORRECT");
         answerIsCorrect();
+        score++;
     } else {
         console.log("WRONG");
         answerIsWrong();
