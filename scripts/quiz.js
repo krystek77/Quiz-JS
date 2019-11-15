@@ -135,8 +135,8 @@ function renderScore() {
     console.log("SCORE is ... ");
     questionContainer.classList.remove('show');
     scoreContainer.classList.add('show');
-    const scorePercent = 100 * (score / numbersOfquestions);
-    const image = (scorePercent >=80) ? 5 : (scorePercent >=60) ? 4 : (scorePercent >= 40) ? 3 : (scorePercent >=20) ? 2 : 1;
+    const scorePercent = Math.round(100 * (score / numbersOfquestions));
+    const image = (scorePercent >= 80) ? 5 : (scorePercent >= 60) ? 4 : (scorePercent >= 40) ? 3 : (scorePercent >= 20) ? 2 : 1;
 
     imageScore.innerHTML = "<img src='../images/" + image + ".png' alt='" + image + ".png'/>";
     scores.innerHTML = scorePercent + " %";
